@@ -652,7 +652,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1577270015}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: Juego3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1331,7 +1331,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 2b160a037bf774339b5e43b25f2ccd1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bff71b2dd11411a9bf3d00ed3a426e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 5
   bala: {fileID: 5935567074204406622, guid: e2cef46308f9b44ccaf3d9e14f97782e, type: 3}
   balaRafaga: {fileID: 5935567074204406622, guid: ee936ef7cfeac42a98d98fe8e2df23c6, type: 3}
   disparador: {fileID: 1682579270}

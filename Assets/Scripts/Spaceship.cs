@@ -10,7 +10,10 @@ public class Spaceship : MonoBehaviour
     [SerializeField] GameObject disparador;
 
     [SerializeField] float fireRate;
-    
+
+    float Startingtime = 3f;
+    float UsosHab = 3;
+
 
     float minX, maxX, minY, maxY;
     float nextFire = 0;
@@ -31,18 +34,15 @@ public class Spaceship : MonoBehaviour
         maxY = esquinaSupDer.y - 0.7f;
         minX = puntoMinParaY.x + 0.7f;
         minY = puntoMinParaY.y;
-
-       
-
-        // World space = el espacio de juego
-        // screen space = la resolucion
-        // viewport = la camara
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!gamePaused)
+        AbilityTime();
+
+        if (!gamePaused)
         {
             MoverNave();
             if (cambiarBala)
@@ -84,32 +84,53 @@ public class Spaceship : MonoBehaviour
 
         Vector2 movimiento = new Vector2(movH * Time.deltaTime * speed, movV * Time.deltaTime * speed);
 
-        //Aca se mueve
+        
         transform.Translate(movimiento);
 
-        //aca voy a verifica la posicion
+        
         if (transform.position.x > maxX)
         {
-            //devuelvase a maxX
+            
             transform.position = new Vector2(maxX, transform.position.y);
 
         }
         if (transform.position.x < minX)
         {
-            //devuelvase a minX
+            
             transform.position = new Vector2(minX, transform.position.y);
         }
 
         if (transform.position.y > maxY)
         {
-            //devuelvase a maxY
+           
             transform.position = new Vector2(transform.position.x, maxY);
         }
         if (transform.position.y < minY)
         {
-            //devuelvase a minY
+           
             transform.position = new Vector2(transform.position.x, minY);
         }
     }
- 
+
+    void AbilityTime()
+    {
+        Startingtime -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            UsosHab--;
+            if (UsosHab >= 0)
+            {
+                Time.timeScale = 0.5f;
+       
+            }
+
+        }
+        if (Startingtime <= 0)
+        {
+            Time.timeScale = 1f;
+            Startingtime = 3f;
+            
+        }
+    }
+
 }

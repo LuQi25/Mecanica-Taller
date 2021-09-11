@@ -11,12 +11,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject gameOverUI;
     [SerializeField] int numEnemies;
+    
+   
 
     // Start is called before the first frame update
     void Start()
     {
         pauseUI.SetActive(false);
         gameOverUI.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -24,13 +27,32 @@ public class GameManager : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.P) && gameOver == false)
+        {
             PauseGame();
-
+        }
+        
     }
+
 
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+    }
+
+    public void MainMenu ()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+    }
+    public void Juego2 ()
+    {
+        SceneManager.LoadScene(2);
+        Time.timeScale = 1;
+    }
+    public void Juego3 ()
+    {
+        SceneManager.LoadScene(3);
         Time.timeScale = 1;
     }
 
@@ -60,7 +82,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         player.gamePaused = true;
         gameOverUI.SetActive(true);
-        SceneManager.LoadScene(0);
         
     }
 }
